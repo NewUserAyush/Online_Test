@@ -1,0 +1,34 @@
+ <md-divider ></md-divider>
+<md-content class="md-no-momentum" style="background-color:white;" layout-margin>
+    <div layout="row" style="margin-left:30%">
+        <div flex="40"><md-input-container class="md-icon-float md-block">
+          <!-- Use floating label instead of placeholder -->
+          <label>Name</label>
+          <md-icon md-svg-src="image/user.svg" class="name"></md-icon>
+          <input ng-model="user.name" type="text">
+             </md-input-container>
+        </div >
+        <div flex="20">
+            <md-button class="md-raised md-primary" ng-click="SatrtTest(user.name)">Start Test</md-button>
+       </div>
+         
+    </div>
+
+ <md-divider ></md-divider>
+<div id="instructionsDiv" layout="row" layout-margin style="margin-left:30%">
+					
+    <div flex> 
+						<h2><u>Instructions</u></h2>
+						<ul>
+							<li>Make sure you have a good internet connection.</li>
+							<li>Enter Your Name in given Input Box and then click on "Start The test" button.</li>
+							<li>You have multiple options for each question.</li>
+							<li>Among those one/multiple options correct</li>
+							<li>You must have select an option and then click on "Next question" button to solve next question. </li>
+                            <li>You can also go back and correct your answer. </li>
+							<li>At the end of test Your marks is displayed along with your correct/incorrect pie chart.</li>
+							<li>Correct answer of the each question will be displayed at the end of test.</li>
+						</ul>
+        </div>
+</div>
+ </md-content>

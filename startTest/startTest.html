@@ -1,0 +1,32 @@
+ <div ng-controller='StartTestCtrl as qctrl' style="background-color:white">
+    
+        <div layout="row" layout-margin=""><span class="md-subhead">Question {{index+1}}.</span><span class="md-subhead"> {{qctrl.Data[index].question}}</span></div>
+            <md-divider></md-divider>
+            
+            <div  ng-if="!qctrl.Data[index].isMultipleType">
+                <md-radio-group ng-model="qctrl.Data[index].selectedRadio" >
+                    <div ng-repeat="ans in qctrl.Data[index].answers track by $index" class="row" layout-margin="">
+                        <div flex="" layout='row' layout-align="start center">
+                            <md-radio-button flex="" ng-value="$index" class="md-primary" > {{ans}} </md-radio-button>
+                        </div>
+                    </div>
+                </md-radio-group>
+            <md-divider></md-divider>
+            </div>
+            
+        <div ng-if="qctrl.Data[index].isMultipleType" >
+                <div flex="" layout='row' layout-align="start center" ng-repeat="ans in qctrl.Data[index].answers track by $index" layout-margin="">
+                  <md-checkbox flex="" ng-checked="exists(ans,qctrl.Data[index].selectedbox)" ng-click="toggle(ans, qctrl.Data[index])" class="md-primary">
+                   {{ ans}}
+                  </md-checkbox>
+                </div>
+                
+        </div>
+     
+        <div layout="row" layout-align="center center" ng-init="index=0">
+            <md-button ng-disabled="index < 1" class="md-raised" ng-click="index = (index - 1) % qctrl.Data.length">Previous</md-button>
+            <md-button class="md-raised" ng-disabled="index ==(qctrl.Data.length-1)" ng-click="(index = (index + 1) % qctrl.Data.length);next(qctrl.Data[index-1])">Next</md-button>
+            <md-button class="md-raised" ng-show="index ==(qctrl.Data.length-1)" ng-click="next(qctrl.Data[index]);submit()">submit</md-button>
+        </div>
+   
+</div>

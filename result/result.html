@@ -1,0 +1,27 @@
+<div  ng-controller="ResultCtrl" layout="column" layout-margin>
+
+    <div layout="row">
+    <div  id="piechart" flex="70" style="min-height:200px;"></div>
+    <div  id="piechart" flex="30" style="color:green"><h1>Hello {{user}}</h1></div>
+    </div>
+    <md-divider></md-divider>
+     <div flex  ng-repeat="CAns in CorrectAnswer track by $index">
+        <div flex><strong>Question {{ $index+1 }} {{CAns.question}}</strong></div>
+           <md-divider></md-divider>
+        <div layout="row">
+             <div flex>
+                 <strong style="color:green"><i><u>correct answer:</u></i></strong>  
+                 <div ng-repeat="ans in CAns.answers" >
+                        <div>{{ans}}</div>
+                    </div>
+             </div> 
+            
+             <div flex>
+                <strong style="color:red"><i><u>Your answer:</u></i></strong>  
+                 <div ng-repeat="ans in CAns.yourResult" >
+                        <div>{{ans}}</div>
+                    </div>
+             </div>
+        </div>
+     </div>
+</div>
